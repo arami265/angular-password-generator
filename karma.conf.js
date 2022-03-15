@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/pw'),
+      dir: require('path').join(__dirname, './coverage/angular-password-generator'),
       subdir: '.',
       reporters: [
         { type: 'html' },

@@ -1,5 +1,5 @@
 {
-  "name": "pw",
+  "name": "angular-password-generator",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
