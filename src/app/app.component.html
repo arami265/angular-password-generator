@@ -1,32 +1,40 @@
 <mat-toolbar color="primary">
   <span>Random Password Generator</span>
   <span class="toolbar-spacer"></span>
-  <a href="https://github.com/arami265">
+  <a href="https://github.com/arami265/angular-password-generator">
     <button mat-raised-button
     type='button'
     color="accent">Back to my Github</button>
   </a>
 </mat-toolbar>
 
-<div class="centered">
+<div class="med-width centered center-text">
   <h3>This page is an implementation of a basic password generating app, with clean logic and utilizing beautiful Angular material components. Go ahead and try various inputs, including massive password lengths!
   </h3>
 </div>
 
 <div class="centered">
-  <mat-card class = "form">
+  <mat-card class = "med-width">
     <form autocomplete="off">
       <mat-form-field class="full-width">
         <mat-label>Enter the desired password length here</mat-label>
         <input matInput type="text" (input)="onInputLength($event.target!)" />
       </mat-form-field>
 
+      <br>
       <mat-checkbox (change)="onChangeUseLetters()">Use letters</mat-checkbox>
       <br>
       <mat-checkbox (change)="onChangeUseNumbers()">Use numbers</mat-checkbox>
       <br>
       <mat-checkbox (change)="onChangeUseSymbols()">Use symbols</mat-checkbox>
       <br><br>
+
+      <mat-form-field class="full-width">
+        <mat-label>(Optional) Enter any unallowed characters here</mat-label>
+        <input matInput type="text" (input)="onInputUnallowed($event.target!)" />
+      </mat-form-field>
+
+      <br>
       <button mat-raised-button
       type='button'
       color="primary"
