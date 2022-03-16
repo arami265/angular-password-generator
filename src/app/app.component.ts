@@ -24,8 +24,7 @@ export class AppComponent {
   }
 
   onInputUnallowed(target: EventTarget) {
-    const value = (target as HTMLInputElement).value;
-    const unallowed = value;
+    const unallowed = (target as HTMLInputElement).value;
 
     if(unallowed.length > 0) {
       this.unallowed = unallowed;
@@ -59,7 +58,7 @@ export class AppComponent {
     // console.log('symbols: ' + this.useSymbols);
     // console.log(this.unallowed);
 
-    const letters = 'qwertyuiopasdfghjklzxcvbnm';
+    const letters = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
     const numbers = '1234567890';
     const symbols = '!@#$%^&*()_+-=`~[]\\|;\':",./<>?';
 
