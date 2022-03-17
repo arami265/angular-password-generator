@@ -9,6 +9,7 @@ export class AppComponent {
   length = 0;
   unallowed = '';
   useLetters = false;
+  useUppercase = true;
   useNumbers = false;
   useSymbols = false;
   password = '';
@@ -36,6 +37,10 @@ export class AppComponent {
     this.useLetters = !this.useLetters;
   }
 
+  onChangeUseUppercase() {
+    this.useUppercase = !this.useUppercase;
+  }
+
   onChangeUseNumbers() {
     this.useNumbers = !this.useNumbers;
   }
@@ -58,7 +63,7 @@ export class AppComponent {
     // console.log('symbols: ' + this.useSymbols);
     // console.log(this.unallowed);
 
-    const letters = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
+    const letters = 'qwertyuiopasdfghjklzxcvbnm';
     const numbers = '1234567890';
     const symbols = '!@#$%^&*()_+-=`~[]\\|;\':",./<>?';
 
@@ -76,15 +81,22 @@ export class AppComponent {
 
     if(this.unallowed.length > 0) {
       for (let i = 0; i < this.unallowed.length; i++) {
-        validChars = validChars.replace(this.unallowed[i], '');
+        validChars = validChars.replace(this.unallowed[i].toLowerCase(), '');
       }
     }
 
     let generatedPassword = '';
     for (let i = 0; i < this.length; i++) {
       const randIndex = Math.floor(Math.random() * validChars.length);
+      let newChar = validChars[randIndex];
 
-      generatedPassword += validChars[randIndex];
+      if (letters.includes(newChar) && this.useUppercase) {
+        if (Math.random() > 0.8) {
+          newChar = newChar.toUpperCase();
+        }
+      }
+
+      generatedPassword += newChar;
     }
 
     this.password = generatedPassword;

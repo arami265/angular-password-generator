@@ -8,12 +8,12 @@
   </a>
 </mat-toolbar>
 
-<div class="med-width centered center-text">
-  <h3>This page is an implementation of a basic password generating app, with clean logic and utilizing beautiful Angular material components. Go ahead and try various inputs, including massive password lengths!
-  </h3>
+<div class="larger-width centered left-text">
+  <h3>This page is an implementation of a basic password generating app, with clean logic and utilizing beautiful Angular material components.</h3>
+  <h3>Go ahead and try various inputs, including massive password lengths!</h3>
 </div>
 
-<div class="centered">
+<div class="centered-flex">
   <mat-card class = "med-width">
     <form autocomplete="off">
       <mat-form-field class="full-width">
@@ -23,6 +23,7 @@
 
       <br>
       <mat-checkbox (change)="onChangeUseLetters()">Use letters</mat-checkbox>
+      <mat-checkbox *ngIf="useLetters" class="pad-left" (change)="onChangeUseUppercase()">No uppercase</mat-checkbox>
       <br>
       <mat-checkbox (change)="onChangeUseNumbers()">Use numbers</mat-checkbox>
       <br>
@@ -41,7 +42,12 @@
       [disabled]="!isGenerateValid()"
       (click)="onClickGeneratePassword()">Generate</button>
     </form>
-    <br>
-    <mat-label>Your generated password: {{ password }}</mat-label>
+
+    <div *ngIf="password.length > 0">
+      <br>
+      Your generated password:
+      <br>
+      {{ password }}
+    </div>
   </mat-card>
 </div>
