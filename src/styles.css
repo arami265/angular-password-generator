@@ -16,16 +16,20 @@ body {
   hyphens: auto; */
 }
 
+.padded {
+  padding: 15px;
+}
+
 .toolbar-spacer {
   flex: 1 1 auto;
 }
 
 .med-width {
-  width: 50vh;
+  max-width: 450px;
 }
 
 .larger-width {
-  width: 66%;
+  max-width: 650px;
 }
 
 .full-width {
@@ -41,22 +45,16 @@ body {
 }
 
 .centered {
-  padding: 2vh;
   margin: auto;
   justify-content: center;
   align-items: center;
 }
 
 .centered-flex {
-  padding: 2vh;
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.top-left {
-  padding: 5vh 10vh 0vh;
 }
 
 .pad-left {
